@@ -1,24 +1,26 @@
 
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react'
+import Buttonhere from './Buttonhere';
 
-const Tabpanel = ({context,value,index,handlebuttonchange,...other}) => {
+const Tabpanel = ({context,value,col,index,buttonvalue,handlebuttonclick,...other}) => {
     
+  
+
   return (
     <div
-      role="tabpanel"
+    role="tabpanel"
       hidden={value !== index}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
-      {...other}
-    >
-      {/* {value === index && ( */}
-        <Box p={5}>
-          <Typography>{context}</Typography>
-        </Box>
-
-        <Button onClick={handlebuttonchange} value={index}>{index+1}</Button>
-      {/* )} */}
+      {...other}>
+      {
+      value === index && (
+        <><Box p={5}>
+            <Typography>{context}</Typography>
+          </Box><Buttonhere buttonvalue={buttonvalue} col={col} handlebuttonclick={handlebuttonclick} /></>
+      )
+}
     </div>
   )
 }
